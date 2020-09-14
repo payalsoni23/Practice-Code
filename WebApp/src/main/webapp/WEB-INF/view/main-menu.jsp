@@ -7,6 +7,6 @@
 <title>Main Menu</title>
 </head>
 <body>
-This is my web page.
+<a href="student/student-form" title="click here">student form page </a> 
 </body>
 </html>
