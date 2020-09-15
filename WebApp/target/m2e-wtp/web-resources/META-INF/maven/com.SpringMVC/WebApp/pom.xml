@@ -41,6 +41,26 @@
     	<artifactId>spring-core</artifactId>
     	<version>4.2.0.RELEASE</version>
     </dependency>
+    
+    <!-- dependencies for jstl tag lib support -->
+    <dependency>
+        <groupId>javax.servlet.jsp.jstl</groupId>
+        <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+        <version>1.2.1</version>
+    </dependency>
+    
+    <dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+	</dependency>
+
+	<dependency>
+    	<groupId>taglibs</groupId>
+    	<artifactId>standard</artifactId>
+    	<version>1.1.2</version>
+	</dependency>
+    
   </dependencies>
 
   <build>
