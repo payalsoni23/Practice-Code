@@ -7,23 +7,27 @@
 </head>
 <body>
 
-		Hello Student
-		<br>
-		${student.firstName}
+		Student details:
+		<br><br>
+		${student.firstName} ${student.lastName}
 		<%-- old name: ${param.studentName} studentName is parameter from JSP file, hence "param." is used--%>
-		<br>
-		${student.lastName}
 		<%-- new name: ${newStudent} newStudent is parameter from controller --%>
+		<br>
+		Mobile number - ${student.mobileNumber}
+		<br>
+		Number of passes - ${student.passes}
+		<br>
+		Course code - ${student.code}
 		<br>
 		Country - ${student.country}
 		<br>
 		Programming Language - ${student.programmingLang}
 		<br>
 		Operating Systems:
-		<ul>
+		<ol>
 			<c:forEach var="temp" items="${student.operatingSystem}">
 			<li> ${temp} </li>
 			</c:forEach>
-		</ul>
+		</ol>
 </body>
 </html>

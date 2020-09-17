@@ -1,7 +1,13 @@
 package com.SpringDemo.mvc.Controller;
 
+import javax.validation.Valid;
+
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,6 +16,12 @@ import com.SpringDemo.mvc.Model.Student;
 @Controller
 @RequestMapping("/student")
 public class StudentController {
+
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		StringTrimmerEditor editor = new StringTrimmerEditor(true);
+		binder.registerCustomEditor(String.class, editor);
+	}
 
 	/*
 	 * @RequestMapping("/student-form") public String studentForm() { return
@@ -44,8 +56,13 @@ public class StudentController {
 	}
 
 	@RequestMapping("/processForm")
-	public String processForm(@ModelAttribute("student") Student student) {
-		return "student-data";
+	public String processForm(@Valid @ModelAttribute("student") Student student, BindingResult bindingResult) {
+		System.out.println("Student details: " + student);
+		System.out.println("Binding Result: " + bindingResult);
+		if (bindingResult.hasErrors())
+			return "student-form";
+		else
+			return "student-data";
 	}
 
 }
